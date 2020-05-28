@@ -27,4 +27,36 @@ module.exports = (app) => {
       res.status(422).send(err);
     }
   });
+
+  app.post("/api/v1/upvotes", async (req, res) => {
+    try {
+      const post = await Post.findById(req.params.id);
+      await Post.updateOne(post, {
+        $inc: { upVotes: 1 },
+        function(err, res) {
+          if (err) throw err;
+          res.send("Successfully updated");
+        },
+      });
+      res.status(200).send(post);
+    } catch (error) {
+      res.status(422).send(err);
+    }
+  });
+
+  app.post("/api/v1/downvotes", async (req, res) => {
+    try {
+      const post = await Post.findById(req.params.id);
+      await Post.updateOne(post, {
+        $inc: { downVotes: 1 },
+        function(err, res) {
+          if (err) throw err;
+          res.send("Successfully updated");
+        },
+      });
+      res.status(200).send(post);
+    } catch (error) {
+      res.status(422).send(err);
+    }
+  });
 };
