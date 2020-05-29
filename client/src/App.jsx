@@ -1,8 +1,23 @@
 import React from "react";
+import { Container } from "semantic-ui-react";
+
 import "./App.css";
 
+import CommentBox from "./components/comment-box/CommentBox";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <link
+        rel="stylesheet"
+        href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+      />
+      <Container>
+        <h1 style={{ textAlign: "center" }}>Share your thoughts...</h1>
+        <CommentBox />
+      </Container>
+    </div>
+  );
 }
 
 export default App;
