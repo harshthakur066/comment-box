@@ -3,7 +3,7 @@ import { Card, Icon, Grid, Button } from "semantic-ui-react";
 import axios from "axios";
 
 const CommentList = ({ posts }) => {
-  console.log(posts);
+  // console.log(posts);
 
   // const result = posts.map((post) => ({
   //   value: post._id,
@@ -33,7 +33,7 @@ const CommentList = ({ posts }) => {
   const postsList = () =>
     posts.map((post) => {
       return (
-        <div style={{ marginTop: "4%" }}>
+        <div key={post._id} style={{ marginTop: "4%" }}>
           <Grid>
             <Grid.Row stretched>
               <Grid.Column floated="left" width={10}>
@@ -45,23 +45,26 @@ const CommentList = ({ posts }) => {
                 </Card>
               </Grid.Column>
 
-              <Grid.Column floated="right" width={4}>
-                <Button
-                  onClick={() => upVote(post._id)}
-                  style={{ margin: "5px" }}
-                >
-                  <Icon color="green" name="thumbs up" />
+              <Grid.Column floated="right" width={3}>
+                <div style={{ margin: "5px" }}>
+                  <Icon
+                    onClick={() => upVote(post._id)}
+                    color="green"
+                    link
+                    name="thumbs up"
+                  />
                   {post.upVotes} upvotes
-                </Button>
+                </div>
 
-                <Button
-                  onClick={() => downVote(post._id)}
-                  content="Standard"
-                  style={{ margin: "5px" }}
-                >
-                  <Icon color="red" name="thumbs down" />
+                <div style={{ margin: "5px" }}>
+                  <Icon
+                    onClick={() => downVote(post._id)}
+                    color="red"
+                    link
+                    name="thumbs down"
+                  />
                   {post.downVotes} downvotes
-                </Button>
+                </div>
               </Grid.Column>
             </Grid.Row>
           </Grid>
