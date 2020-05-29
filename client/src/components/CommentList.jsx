@@ -31,46 +31,48 @@ const CommentList = ({ posts }) => {
   };
 
   const postsList = () =>
-    posts.map((post) => {
-      return (
-        <div key={post._id} style={{ marginTop: "4%" }}>
-          <Grid>
-            <Grid.Row stretched>
-              <Grid.Column floated="left" width={10}>
-                <Card fluid={true}>
-                  <Card.Content>
-                    <Card.Header content={post.name} />
-                    <Card.Description content={post.body} />
-                  </Card.Content>
-                </Card>
-              </Grid.Column>
+    posts
+      .map((post) => {
+        return (
+          <div key={post._id} style={{ marginTop: "4%" }}>
+            <Grid>
+              <Grid.Row stretched>
+                <Grid.Column floated="left" width={10}>
+                  <Card fluid={true}>
+                    <Card.Content>
+                      <Card.Header content={post.name} />
+                      <Card.Description content={post.body} />
+                    </Card.Content>
+                  </Card>
+                </Grid.Column>
 
-              <Grid.Column floated="right" width={3}>
-                <div style={{ margin: "5px" }}>
-                  <Icon
-                    onClick={() => upVote(post._id)}
-                    color="green"
-                    link
-                    name="thumbs up"
-                  />
-                  {post.upVotes} upvotes
-                </div>
+                <Grid.Column floated="right" width={3}>
+                  <div style={{ margin: "5px" }}>
+                    <Icon
+                      onClick={() => upVote(post._id)}
+                      color="green"
+                      link
+                      name="thumbs up"
+                    />
+                    {post.upVotes} upvotes
+                  </div>
 
-                <div style={{ margin: "5px" }}>
-                  <Icon
-                    onClick={() => downVote(post._id)}
-                    color="red"
-                    link
-                    name="thumbs down"
-                  />
-                  {post.downVotes} downvotes
-                </div>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </div>
-      );
-    });
+                  <div style={{ margin: "5px" }}>
+                    <Icon
+                      onClick={() => downVote(post._id)}
+                      color="red"
+                      link
+                      name="thumbs down"
+                    />
+                    {post.downVotes} downvotes
+                  </div>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </div>
+        );
+      })
+      .reverse();
 
   return <div style={{ marginTop: "10%" }}>{postsList()}</div>;
 };
