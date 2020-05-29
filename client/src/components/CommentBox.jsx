@@ -20,7 +20,7 @@ const CommentBox = () => {
     e.preventDefault();
     const newPost = {
       name: name,
-      boddy: comment,
+      body: comment,
     };
     postComment(newPost);
   };
@@ -29,6 +29,7 @@ const CommentBox = () => {
     <div>
       <Form onSubmit={onSubmit} error={!!errorMsg}>
         <Form.Input
+          required={true}
           fluid
           label="Your Nmae"
           placeholder="Enter Your Name..."
@@ -36,6 +37,7 @@ const CommentBox = () => {
           onChange={(e) => setName(e.target.value)}
         />
         <Form.TextArea
+          required={true}
           label="Comment"
           placeholder="Type a comment..."
           value={comment}
@@ -45,7 +47,7 @@ const CommentBox = () => {
           <h4 style={{ color: "green" }}>Your comment has been posted!!!</h4>
         ) : null} */}
         <Message error header="Oops!" content={errorMsg} />
-        <Form.Button floated="right" negative>
+        <Form.Button style={{ marginBottom: "20px" }} floated="right" negative>
           Post Comment
         </Form.Button>
       </Form>
