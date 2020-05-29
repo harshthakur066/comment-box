@@ -36,8 +36,12 @@ const CommentList = ({ posts }) => {
         <div key={post._id} style={{ marginTop: "4%" }}>
           {/* {posts.indexOf(post) + 1} */}
           <Grid>
-            <Grid.Row stretched>
-              <GridColumn floated="left" width={0}>
+            <Grid.Row>
+              <GridColumn
+                style={{ marginRight: "0px" }}
+                floated="left"
+                width={0}
+              >
                 <h3> {posts.indexOf(post) + 1} </h3>
               </GridColumn>
               <Grid.Column floated="left" width={10}>
