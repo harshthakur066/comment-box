@@ -23,6 +23,7 @@ const CommentBox = () => {
       body: comment,
     };
     postComment(newPost);
+    window.location.reload();
   };
 
   return (
@@ -47,9 +48,15 @@ const CommentBox = () => {
           <h4 style={{ color: "green" }}>Your comment has been posted!!!</h4>
         ) : null} */}
         <Message error header="Oops!" content={errorMsg} />
-        <Form.Button style={{ marginBottom: "20px" }} floated="right" negative>
-          Post Comment
-        </Form.Button>
+        <div>
+          <Form.Button
+            floated="right"
+            style={{ marginBottom: "20px" }}
+            negative
+          >
+            Post Comment
+          </Form.Button>
+        </div>
       </Form>
     </div>
   );

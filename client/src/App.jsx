@@ -32,8 +32,12 @@ function App() {
       />
       <Container>
         <h1 style={{ textAlign: "center" }}>Share your thoughts...</h1>
-        <CommentBox />
-        <CommentList posts={posts} />
+        <div>
+          <CommentBox />
+        </div>
+        <div>
+          <CommentList posts={posts} />
+        </div>
       </Container>
     </div>
   );

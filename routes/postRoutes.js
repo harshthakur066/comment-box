@@ -28,9 +28,12 @@ module.exports = (app) => {
     }
   });
 
-  app.post("/api/v1/upvotes", async (req, res) => {
+  app.put("/api/v1/upvotes/:id", async (req, res) => {
+    const id = req.params.id;
+
     try {
-      const post = await Post.findById(req.params.id);
+      const post = await Post.findOne({ _id: id });
+
       await Post.updateOne(post, {
         $inc: { upVotes: 1 },
         function(err, res) {
@@ -44,9 +47,12 @@ module.exports = (app) => {
     }
   });
 
-  app.post("/api/v1/downvotes", async (req, res) => {
+  app.put("/api/v1/downvotes/:id", async (req, res) => {
+    const id = req.params.id;
+
     try {
-      const post = await Post.findById(req.params.id);
+      const post = await Post.findOne({ _id: id });
+
       await Post.updateOne(post, {
         $inc: { downVotes: 1 },
         function(err, res) {
