@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Form, Message } from "semantic-ui-react";
 
+import "./main.css";
+
 const CommentBox = () => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
@@ -49,14 +51,12 @@ const CommentBox = () => {
         ) : null} */}
         <Message error header="Oops!" content={errorMsg} />
         <div>
-          <Form.Button
-            floated="right"
-            style={{ marginBottom: "20px" }}
-            negative
-          >
+          <Form.Button floated="right" className="view-fix" negative>
             Post Comment
           </Form.Button>
         </div>
+        <br />
+        <br />
       </Form>
     </div>
   );

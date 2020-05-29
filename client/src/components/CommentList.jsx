@@ -40,7 +40,7 @@ const CommentList = ({ posts }) => {
               <GridColumn
                 style={{ marginRight: "0px" }}
                 floated="left"
-                width={0}
+                width={1}
               >
                 <h3> {posts.indexOf(post) + 1} </h3>
               </GridColumn>
@@ -53,7 +53,7 @@ const CommentList = ({ posts }) => {
                 </Card>
               </Grid.Column>
 
-              <Grid.Column floated="right" width={3}>
+              <Grid.Column floated="right" width={2}>
                 <div style={{ margin: "5px" }}>
                   <Icon
                     onClick={() => upVote(post._id)}
